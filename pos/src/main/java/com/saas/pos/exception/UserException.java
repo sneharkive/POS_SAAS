@@ -1,6 +1,6 @@
 package com.saas.pos.exception;
 
-public class UserException extends Throwable {
+public class UserException extends Exception {
   public UserException(String msg){
     super(msg);
   }
