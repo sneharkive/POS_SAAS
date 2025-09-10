@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.saas.pos.dto.ApiResponse;
 import com.saas.pos.dto.StoreDto;
+import com.saas.pos.dto.StoreStatus;
 import com.saas.pos.exception.UserException;
 import com.saas.pos.mapper.StoreMapper;
 import com.saas.pos.model.Store;
@@ -68,6 +70,12 @@ public class StoreController {
   public ResponseEntity<StoreDto> updateStore(@PathVariable Long id, @RequestBody StoreDto storeDto) throws Exception {
       
       return ResponseEntity.ok(storeService.updateStore(id, storeDto));
+  }
+  
+  @PutMapping("/{id}/moderate")
+  public ResponseEntity<StoreDto> moderateStore(@PathVariable Long id, @RequestParam StoreStatus status) throws Exception {
+      
+      return ResponseEntity.ok(storeService.moderateStore(id, status));
   }
 
   @DeleteMapping("/{id}")

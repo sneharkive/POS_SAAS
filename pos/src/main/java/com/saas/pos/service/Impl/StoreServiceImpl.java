@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import com.saas.pos.dto.StoreDto;
+import com.saas.pos.dto.StoreStatus;
 import com.saas.pos.exception.UserException;
 import com.saas.pos.mapper.StoreMapper;
 import com.saas.pos.model.Store;
@@ -90,8 +91,14 @@ public class StoreServiceImpl implements StoreService {
       throw new UserException("You don't have permission to access this store.");
 
     return StoreMapper.toDTO(currUser.getStore());
-    
-    
+  }
+
+  @Override
+  public StoreDto moderateStore(Long id, StoreStatus status) throws Exception {
+    Store store = storeRepository.findById(id).orElseThrow(() -> new Exception("Store not found with id: " + id));
+
+    store.setStatus(status);
+    return StoreMapper.toDTO(storeRepository.save(store));
   }
   
 }
