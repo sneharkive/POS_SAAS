@@ -16,7 +16,6 @@ import com.saas.pos.dto.ApiResponse;
 import com.saas.pos.dto.CategoryDto;
 import com.saas.pos.service.CategoryService;
 
-import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
 
 @RestController
