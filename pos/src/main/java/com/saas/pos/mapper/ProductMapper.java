@@ -1,6 +1,7 @@
 package com.saas.pos.mapper;
 
 import com.saas.pos.dto.ProductDto;
+import com.saas.pos.model.Category;
 import com.saas.pos.model.Product;
 import com.saas.pos.model.Store;
 
@@ -17,21 +18,23 @@ public class ProductMapper {
         .brand(product.getBrand())
         .image(product.getImage())
         .storeId(product.getStore() != null ? product.getStore().getId() : null)
+        .category(CategoryMapper.toDTO(product.getCategory()))
         .createdAt(product.getCreatedAt())
         .updatedAt(product.getUpdatedAt())
         .build();
   }
 
-  public static Product toEntity(ProductDto dto, Store store) {
+  public static Product toEntity(ProductDto dto, Store store, Category category) {
     return Product.builder()
         .name(dto.getName())
+        .store(store)
+        .Category(category)
         .sku(dto.getSku())
         .description(dto.getDescription())
         .mrp(dto.getMrp())
         .sellingPrice(dto.getSellingPrice())
         .brand(dto.getBrand())
         .image(dto.getImage())
-        // .store(store)
         .build();
   }
 }
