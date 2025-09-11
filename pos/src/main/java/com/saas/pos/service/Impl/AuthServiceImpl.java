@@ -12,9 +12,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.saas.pos.config.JWtProvider;
+import com.saas.pos.domain.UserRole;
 import com.saas.pos.dto.AuthResponse;
 import com.saas.pos.dto.UserDto;
-import com.saas.pos.dto.UserRole;
 import com.saas.pos.exception.UserException;
 import com.saas.pos.mapper.UserMapper;
 import com.saas.pos.model.User;

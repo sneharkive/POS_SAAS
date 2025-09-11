@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.saas.pos.domain.StoreStatus;
 import com.saas.pos.dto.StoreDto;
-import com.saas.pos.dto.StoreStatus;
 import com.saas.pos.exception.UserException;
 import com.saas.pos.model.Store;
 import com.saas.pos.model.User;

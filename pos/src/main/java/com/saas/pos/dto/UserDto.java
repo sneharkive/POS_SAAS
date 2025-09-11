@@ -1,6 +1,9 @@
 package com.saas.pos.dto;
 
 import java.time.LocalDateTime;
+
+import com.saas.pos.domain.UserRole;
+
 import lombok.Data;
 
 @Data

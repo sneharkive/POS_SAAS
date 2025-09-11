@@ -2,9 +2,9 @@ package com.saas.pos.dto;
 
 import java.time.LocalDateTime;
 
+import com.saas.pos.domain.StoreStatus;
 import com.saas.pos.model.StoreContact;
 
-import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 @Data

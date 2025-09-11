@@ -2,7 +2,7 @@ package com.saas.pos.model;
 
 import java.time.LocalDateTime;
 
-import com.saas.pos.dto.StoreStatus;
+import com.saas.pos.domain.StoreStatus;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;

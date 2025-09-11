@@ -5,8 +5,8 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import com.saas.pos.domain.StoreStatus;
 import com.saas.pos.dto.StoreDto;
-import com.saas.pos.dto.StoreStatus;
 import com.saas.pos.exception.UserException;
 import com.saas.pos.mapper.StoreMapper;
 import com.saas.pos.model.Store;

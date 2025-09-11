@@ -2,7 +2,7 @@ package com.saas.pos.model;
 
 import java.time.LocalDateTime;
 
-import com.saas.pos.dto.UserRole;
+import com.saas.pos.domain.UserRole;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

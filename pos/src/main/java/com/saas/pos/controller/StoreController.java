@@ -13,12 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.saas.pos.domain.StoreStatus;
 import com.saas.pos.dto.ApiResponse;
 import com.saas.pos.dto.StoreDto;
-import com.saas.pos.dto.StoreStatus;
 import com.saas.pos.exception.UserException;
 import com.saas.pos.mapper.StoreMapper;
-import com.saas.pos.model.Store;
 import com.saas.pos.model.User;
 import com.saas.pos.service.StoreService;
 import com.saas.pos.service.UserService;
@@ -28,7 +27,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 
 @RestController
-@RequestMapping("/api/store")
+@RequestMapping("/api/stores")
 @RequiredArgsConstructor
 public class StoreController {
 
@@ -39,12 +38,6 @@ public class StoreController {
   public ResponseEntity<StoreDto> createStore(@RequestBody StoreDto storeDto, @RequestHeader("Authorization") String jwt) throws UserException {
     User user = userService.getUserFromJwtToken(jwt);
     return ResponseEntity.ok(storeService.createStore(storeDto, user));
-  }
-
-  @GetMapping("/{id}")
-  public ResponseEntity<StoreDto> getStoreById(@PathVariable Long id, @RequestHeader("Authorization") String jwt) throws Exception {
-
-    return ResponseEntity.ok(storeService.getStoreById(id));
   }
 
   @GetMapping()
@@ -77,6 +70,14 @@ public class StoreController {
       
       return ResponseEntity.ok(storeService.moderateStore(id, status));
   }
+
+  
+  @GetMapping("/{id}")
+  public ResponseEntity<StoreDto> getStoreById(@PathVariable Long id, @RequestHeader("Authorization") String jwt) throws Exception {
+
+    return ResponseEntity.ok(storeService.getStoreById(id));
+  }
+
 
   @DeleteMapping("/{id}")
   public ResponseEntity<ApiResponse> deleteStore(@PathVariable Long id) throws Exception {
