@@ -27,7 +27,7 @@ public class BranchServiceImpl implements BranchService {
   private final UserService userService;
   
   @Override
-  public BranchDto createBranch(BranchDto branchDto, User user) throws Exception {
+  public BranchDto createBranch(BranchDto branchDto) throws Exception {
     User currUser = userService.getCurrentUser();
     Store store = storeRepository.findByStoreAdminId(currUser.getId());
 
@@ -36,7 +36,7 @@ public class BranchServiceImpl implements BranchService {
   }
 
   @Override
-  public BranchDto updateBranch(Long id, BranchDto branchDto, User user) throws Exception {
+  public BranchDto updateBranch(Long id, BranchDto branchDto) throws Exception {
 
     Branch existing = branchRepository.findById(id).orElseThrow(() -> new Exception("No Branch Found"));
     
@@ -61,16 +61,16 @@ public class BranchServiceImpl implements BranchService {
   }
 
   @Override
-  public BranchDto getBranchByStoreId(Long id) throws Exception {
-    Branch existing = branchRepository.findById(id).orElseThrow(() -> new Exception("No Branch Found"));
-
-    return BranchMapper.toDTO(existing);
-  }
-
-  @Override
   public List<BranchDto> getAllBranchesByStoreId(Long storeId) throws Exception {
     List<Branch> branches = branchRepository.findByStoreId(storeId);
     return branches.stream().map(BranchMapper::toDTO).collect(Collectors.toList());
   }
   
+  @Override
+  public BranchDto getBranchById(Long id) throws Exception {
+    Branch existing = branchRepository.findById(id).orElseThrow(() -> new Exception("No Branch Found"));
+
+    return BranchMapper.toDTO(existing);
+  }
+
 }
