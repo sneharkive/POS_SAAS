@@ -6,7 +6,7 @@ import com.saas.pos.dto.BranchDto;
 
 public interface BranchService {
 
-  BranchDto createBranch(BranchDto branchDto) throws Exception;
+  BranchDto createBranch(BranchDto branchDto, String jwt) throws Exception;
   BranchDto updateBranch(Long id, BranchDto branchDto) throws Exception;
   void deleteBranch(Long id) throws Exception;
   List<BranchDto> getAllBranchesByStoreId(Long storeId) throws Exception;

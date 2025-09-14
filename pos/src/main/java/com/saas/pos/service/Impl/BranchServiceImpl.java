@@ -27,8 +27,9 @@ public class BranchServiceImpl implements BranchService {
   private final UserService userService;
   
   @Override
-  public BranchDto createBranch(BranchDto branchDto) throws Exception {
-    User currUser = userService.getCurrentUser();
+  public BranchDto createBranch(BranchDto branchDto, String jwt) throws Exception {
+    User currUser = userService.getUserFromJwtToken(jwt);
+    System.out.println(currUser);
     Store store = storeRepository.findByStoreAdminId(currUser.getId());
 
     Branch branch = BranchMapper.toEntity(branchDto, store);

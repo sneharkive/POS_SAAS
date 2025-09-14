@@ -35,6 +35,8 @@ public class UserServiceImpl implements UserService {
     String email = SecurityContextHolder.getContext().getAuthentication().getName();
     User user = userRepository.findByEmail(email);
 
+    System.out.println("getCurrentUser calling................................................................");
+
     if(user == null) throw new UserException("User not found");
 
     return user;

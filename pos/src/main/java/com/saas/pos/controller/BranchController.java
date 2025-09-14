@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,8 +27,8 @@ public class BranchController {
   private final BranchService branchService;
 
   @PostMapping
-  public ResponseEntity<BranchDto> createBranch(@RequestBody BranchDto branchDto) throws Exception {
-    return ResponseEntity.ok(branchService.createBranch(branchDto));
+  public ResponseEntity<BranchDto> createBranch(@RequestBody BranchDto branchDto, @RequestHeader("Authorization") String jwt) throws Exception {
+    return ResponseEntity.ok(branchService.createBranch(branchDto, jwt));
   }
 
   @GetMapping("/{id}")

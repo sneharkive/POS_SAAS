@@ -36,5 +36,13 @@ public class UserController {
 
     return ResponseEntity.ok(UserMapper.toDTO(user));
   }
+
+
+  @GetMapping
+  public ResponseEntity<UserDto> getCurrentUser() throws UserException {
+    User user = userService.getCurrentUser();
+
+    return ResponseEntity.ok(UserMapper.toDTO(user));
+  }
   
 }
