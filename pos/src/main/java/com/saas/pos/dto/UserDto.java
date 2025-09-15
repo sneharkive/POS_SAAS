@@ -9,7 +9,6 @@ import lombok.Data;
 @Data
 public class UserDto {
 
-
   private Long id;
 
   private String fullname;
@@ -22,8 +21,11 @@ public class UserDto {
 
   private UserRole role;
 
+  private Long branchId;
+  private Long storeId;
+
   private LocalDateTime createdAt;
   private LocalDateTime updatedAt;
   private LocalDateTime lastLogin;
-  
+
 }
