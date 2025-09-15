@@ -8,6 +8,8 @@ import com.saas.pos.model.Product;
 public class InventoryMapper {
 
   public static InventoryDto toDTO(Inventory inv){
+    if (inv == null) return null;
+
     return InventoryDto.builder()
             .id(inv.getId())
             .branchId(inv.getBranch() != null ? inv.getBranch().getId() : null)
@@ -23,9 +25,9 @@ public class InventoryMapper {
   public static Inventory toEntity(InventoryDto inv, Branch branch, Product product){
     return Inventory.builder()
             .id(inv.getId())
-            .branchId(branch.getId())
+            // .branchId(branch.getId())
             .branch(branch)
-            .productId(product.getId())
+            // .productId(product.getId())
             .product(product)
             .quantity(inv.getQuantity())
             .lastUpdate(inv.getLastUpdate())

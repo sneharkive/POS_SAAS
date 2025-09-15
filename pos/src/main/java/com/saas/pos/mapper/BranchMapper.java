@@ -7,6 +7,8 @@ import com.saas.pos.model.Store;
 public class BranchMapper {
 
   public static BranchDto toDTO(Branch branch) {
+    if (branch == null) return null;
+    
     return BranchDto.builder()
         .id(branch.getId())
         .name(branch.getName())

@@ -51,7 +51,7 @@ public class InventoryController {
   }
   
   @GetMapping("/branch/{branchId}/product/{productId}")
-  public ResponseEntity<InventoryDto> getInventoryByProductIdAndBranchId(@PathVariable Long productId, @PathVariable Long branchId) throws Exception{
+  public ResponseEntity<InventoryDto> getInventoryByProductIdAndBranchId( @PathVariable Long branchId, @PathVariable Long productId) throws Exception{
     return ResponseEntity.ok(inventoryService.getInventoryByProductIdAndBranchId(productId, branchId));
   }
   

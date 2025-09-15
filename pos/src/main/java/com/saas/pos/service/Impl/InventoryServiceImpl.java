@@ -55,6 +55,9 @@ public class InventoryServiceImpl implements InventoryService {
   public InventoryDto getInventoryByProductIdAndBranchId(Long productId, Long branchId)throws Exception {
     Inventory inventory = inventoryRepository.findByProductIdAndBranchId(productId, branchId);
 
+    if (inventory == null) 
+        throw new Exception("No Inventory Found for given product and branch");
+        
     return InventoryMapper.toDTO(inventoryRepository.save(inventory));
   }
 

@@ -7,6 +7,9 @@ import com.saas.pos.model.User;
 public class StoreMapper {
 
   public static StoreDto toDTO(Store store){
+    if (store == null) 
+      return null; // or throw an exception if a store should always exist
+    
     StoreDto storeDto = new StoreDto();
     storeDto.setId(store.getId());
     storeDto.setBrand(store.getBrand());
@@ -31,7 +34,7 @@ public class StoreMapper {
     store.setStoreType(storeDto.getStoreType());
     store.setCreatedAt(storeDto.getCreatedAt());
     store.setUpdatedAt(storeDto.getUpdatedAt());
-    store.setStatus(store.getStatus());
+    store.setStatus(storeDto.getStatus());
     store.setStoreAdmin(storeAdmin);
 
     return store;
