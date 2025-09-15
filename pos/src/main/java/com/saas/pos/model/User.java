@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
@@ -35,9 +36,11 @@ public class User {
   private String email;
 
   @ManyToOne
+  @JoinColumn(name = "store_id")
   private Store store;
 
   @ManyToOne
+  @JoinColumn(name = "branch_id")
   private Branch branch;
 
   private String phone;
@@ -47,7 +50,10 @@ public class User {
 
   private UserRole role;
 
+@Column(name = "branch_id", insertable = false, updatable = false)
   private Long branchId;
+
+  @Column(name = "store_id", insertable = false, updatable = false)
   private Long storeId;
 
   private LocalDateTime createdAt;

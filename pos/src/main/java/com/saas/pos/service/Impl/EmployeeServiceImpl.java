@@ -24,9 +24,9 @@ import lombok.RequiredArgsConstructor;
 public class EmployeeServiceImpl implements EmployeeService {
 
   private final UserRepository userRepository;
-  private StoreRepository storeRepository;
+  private final StoreRepository storeRepository;
   private final BranchRepository branchRepository;
-  private PasswordEncoder passwordEncoder;
+  private final PasswordEncoder passwordEncoder;
 
   @Override
   public UserDto createStoreEmployee(UserDto employee, Long storeId) throws Exception {
