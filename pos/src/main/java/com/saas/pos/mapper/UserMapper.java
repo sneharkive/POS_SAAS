@@ -33,8 +33,8 @@ public class UserMapper {
     user.setCreatedAt(userDto.getCreatedAt());
     user.setUpdatedAt(userDto.getUpdatedAt());
     user.setLastLogin(userDto.getLastLogin());
-    if(userDto.getBranchId() != null)userDto.setBranchId(userDto.getBranchId());
-    if(userDto.getStoreId() != null)userDto.setStoreId(userDto.getStoreId());
+    // if(userDto.getBranchId() != null)userDto.setBranchId(userDto.getBranchId());
+    // if(userDto.getStoreId() != null)userDto.setStoreId(userDto.getStoreId());
 
     return user;
   }

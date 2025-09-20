@@ -50,11 +50,11 @@ public class User {
 
   private UserRole role;
 
-@Column(name = "branch_id", insertable = false, updatable = false)
-  private Long branchId;
+// @Column(name = "branch_id", insertable = false, updatable = false)
+//   private Long branchId;
 
-  @Column(name = "store_id", insertable = false, updatable = false)
-  private Long storeId;
+//   @Column(name = "store_id", insertable = false, updatable = false)
+//   private Long storeId;
 
   private LocalDateTime createdAt;
   private LocalDateTime updatedAt;

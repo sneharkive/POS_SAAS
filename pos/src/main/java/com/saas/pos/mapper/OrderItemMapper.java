@@ -13,6 +13,7 @@ public class OrderItemMapper {
             .productId(item.getProduct().getId())
             .quantity(item.getQuantity())
             .price(item.getPrice())
+            .orderId(item.getOrder() != null ? item.getOrder().getId() : null)
             .product(ProductMapper.toDTO(item.getProduct()))
             .build();
   }
